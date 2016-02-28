@@ -1,6 +1,9 @@
 var gulp = require('gulp'),
   del = require('del'),
-  gulpLoadPlugins = require('gulp-load-plugins')
+  gulpLoadPlugins = require('gulp-load-plugins'),
+  cssImporter = require('node-sass-css-importer')({
+    import_paths: ['app/jspm_packages']
+  }),
   plg = gulpLoadPlugins();
  
 gulp.task('connect', function() {
@@ -47,7 +50,10 @@ gulp.task('sass:dev', ['clean:css'], function () {
 
 gulp.task('sass:prod', function () {
   gulp.src('app/sass/styles.scss')
-    .pipe(plg.sass({outputStyle: 'compressed'}).on('error', plg.sass.logError))
+    .pipe(plg.sass({
+      importer: [cssImporter],
+      outputStyle: 'compressed'
+    }).on('error', plg.sass.logError))
     .pipe(gulp.dest('dist'));
 });
 

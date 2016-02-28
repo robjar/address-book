@@ -27,7 +27,8 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.7",
     "karma-jspm": "^2.0.2",
-    "karma-junit-reporter": "^0.3.8"
+    "karma-junit-reporter": "^0.3.8",
+    "node-sass-css-importer": "0.0.3"
   },
   "jspm": {
     "directories": {
