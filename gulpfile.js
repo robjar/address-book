@@ -5,19 +5,19 @@ var gulp = require('gulp'),
     import_paths: ['app/jspm_packages']
   }),
   plg = gulpLoadPlugins();
- 
-gulp.task('connect', function() {
+
+gulp.task('connect', function () {
   plg.connect.server({
     root: 'app',
     livereload: true
   });
 });
 
-gulp.task('clean:dist', function() {
+gulp.task('clean:dist', function () {
   del(['dist/**', '!dist']);
 });
 
-gulp.task('clean:css', function() {
+gulp.task('clean:css', function () {
   del(['app/css/**', '!app/css']);
 });
 
@@ -26,10 +26,10 @@ gulp.task('html', function () {
     .pipe(plg.connect.reload());
 });
 
-gulp.task('html:prod', function(){
+gulp.task('html:prod', function () {
   gulp.src(['app/index.html'])
     .pipe(plg.replace(/<script[\s\S]*script>/, '<script src="bundle.js"></script>'))
-    .pipe(plg.replace(/css\/styles\.css/, 'styles.css'))
+    .pipe(plg.replace(/css\/main\.css/, 'main.css'))
     .pipe(gulp.dest('dist'));
 });
 
@@ -42,7 +42,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sass:dev', ['clean:css'], function () {
-  gulp.src('app/sass/styles.scss')
+  gulp.src('app/sass/main.scss')
     .pipe(plg.sass({
       importer: [cssImporter]
     }).on('error', plg.sass.logError))
@@ -51,7 +51,7 @@ gulp.task('sass:dev', ['clean:css'], function () {
 });
 
 gulp.task('sass:prod', function () {
-  gulp.src('app/sass/styles.scss')
+  gulp.src('app/sass/main.scss')
     .pipe(plg.sass({
       importer: [cssImporter],
       outputStyle: 'compressed'
@@ -70,5 +70,5 @@ gulp.task('watch', function () {
   gulp.watch(['app/**/*.js'], ['lint']);
   gulp.watch('app/sass/**/*.scss', ['sass:dev']);
 });
- 
+
 gulp.task('default', ['lint', 'sass:dev', 'connect', 'watch']);

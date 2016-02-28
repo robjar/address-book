@@ -6429,8 +6429,6 @@ button.close {
     display: none !important; } }
 
 /*# sourceMappingURL=bootstrap.css.map */
-body div {
-  broder: 1px solid black; }
-
-body div {
-  color: aqua; }
+body {
+  padding-bottom: 20px;
+  padding-top: 50px; }

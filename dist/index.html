@@ -1,18 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="styles.css" />
-<script src="bundle.js"></script>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Angular JSPM Karma</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="main.css" />
+
+  <title>Address Book</title>
 </head>
+
 <body>
-  <div ng-controller="MainCtrl">
-    <p>AngularJS</p>
-    <p>{{title}}</p>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">AddressBook</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" placeholder="Name..." class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Search</button>
+          <button type="submit" class="btn btn-info">New</button>
+        </form>
+      </div>
+      <!--/.navbar-collapse -->
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Address Book</h1>
+    </div>
   </div>
-  <div ng-controller="SecondCtrl">
-    <p>{{title}}</p>
+
+  <div class="container" ng-controller="MainCtrl">
+    <div class="row">
+      <table class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Country</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <!--<div>
+  <td>Mark</td>
+  <td>Otto</td>
+  <td>@mdo</td>
+  <td>@mdo</td>
+  <td>
+    <button type="button" class="btn btn-success">Edit</button>
+    <button type="button" class="btn btn-danger">Remove</button>
+  </td>
+</div>-->
+              <div class="input-group">
+                <td>
+                  <input type="text" class="form-control" placeholder="First name">
+                </td>
+                <td>
+                  <input type="text" class="form-control" placeholder="Last name">
+                </td>
+                <td>
+                  <input type="text" class="form-control" placeholder="Email">
+                </td>
+                <td>
+                  <select class="form-control">
+                    <option>Poland</option>
+                    <option>Spain</option>
+                    <option>Portugal</option>
+                  </select>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-success" ng-click="add()">Save</button>
+                </td>
+              </div>
+            </tr>
+            <tr>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+              <td>
+                <button type="button" class="btn btn-success">Edit</button>
+                <button type="button" class="btn btn-danger">Remove</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>@mdo</td>
+              <td>
+                <button type="button" class="btn btn-success">Edit</button>
+                <button type="button" class="btn btn-danger">Remove</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>@mdo</td>
+              <td>
+                <button type="button" class="btn btn-success">Edit</button>
+                <button type="button" class="btn btn-danger">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </table>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p>&copy; 2016 Company, Inc.</p>
+    </footer>
   </div>
+  <!-- /container -->
+
+
+  <script src="bundle.js"></script>
 </body>
+
 </html>

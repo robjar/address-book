@@ -6,6 +6,7 @@
   "scripts": {
     "test": "karma start karma.conf.js",
     "prestart": "npm install",
+    "start": "gulp",
     "postinstall": "jspm install"
   },
   "author": "rob_jar@wp.pl",
@@ -39,7 +40,9 @@
       "angular-mocks": "github:angular/bower-angular-mocks@^1.5.0",
       "angular-route": "github:angular/bower-angular-route@^1.5.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
-      "css": "github:systemjs/plugin-css@^0.1.20"
+      "country-list": "npm:country-list@^0.0.3",
+      "css": "github:systemjs/plugin-css@^0.1.20",
+      "ngstorage": "npm:ngstorage@^0.3.10"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
