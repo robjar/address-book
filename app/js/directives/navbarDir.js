@@ -1,11 +1,21 @@
-function navbarDir(storageSrv) {
+function navbarDir(storageSrv, countriesSrv) {
   return {
     restrict: 'E',
     replace: true,
     scope: {},
     link: function ($scope) {
-      $scope.add = function () {
-        storageSrv.add();
+      $scope.adding = false;
+      $scope.countries = countriesSrv.getList();
+      
+      $scope.new = function () {
+        $scope.adding = true;
+        console.log('new');
+      };
+      
+      $scope.add = function (newUser) {
+        $scope.adding = false;
+        storageSrv.add(newUser);
+        console.log('add', newUser);
       };
 
       $scope.search = function () {
@@ -16,4 +26,4 @@ function navbarDir(storageSrv) {
   };
 }
 
-export default ['storageSrv', navbarDir];
+export default ['storageSrv', 'countriesSrv', navbarDir];

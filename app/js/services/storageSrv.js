@@ -6,14 +6,9 @@ function storageSrv($localStorage) {
     contacts: {}
   });
 
-  var _addContact = function () {
-    $localStorage.contacts[Date.now()] = {
-      firstName: 'Robert',
-      lastName: 'Jarosz',
-      email: 'aaa@bbb.com',
-      country: 'Poland'
-    };
-    console.log('added');
+  var _addContact = function (newPerson) {
+    $localStorage.contacts[Date.now()] = newPerson;
+    console.log('added', newPerson);
   };
 
   var _editContact = function (contact) {

@@ -3,7 +3,6 @@ import angular from 'angular';
 
 //controllers
 import MainCtrl from './controllers/mainCtrl.js';
-import NavbarCtrl from './controllers/navbarCtrl.js';
 
 //services
 import storageSrv from './services/storageSrv.js';
@@ -17,7 +16,6 @@ const main = angular.module('main', ['ngStorage'])
   .factory('storageSrv', storageSrv)
   .factory('countriesSrv', countriesSrv)
   .controller('MainCtrl', MainCtrl)
-  .controller('NavbarCtrl', NavbarCtrl)
   .directive('navbar', navbarDir)
   .directive('contactDir', contactDir);
 

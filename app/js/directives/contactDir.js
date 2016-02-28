@@ -12,11 +12,11 @@ function contactDir(storageSrv) {
 
       $scope.edit = function (person) {
         $scope.editing = true;
-        $scope.editedUser = storageSrv.edit(person);
+        $scope.editedPerson = storageSrv.edit(person);
       };
 
-      $scope.save = function (id, editedUser) {
-        storageSrv.save(id, editedUser);
+      $scope.save = function (id, editedPerson) {
+        storageSrv.save(id, editedPerson);
         $scope.editing = false;
       };
 
