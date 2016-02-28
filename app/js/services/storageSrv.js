@@ -1,19 +1,47 @@
-export default function storageSrv() {
+import angular from 'angular';
+import 'ngstorage';
+
+function storageSrv($localStorage) {
+  $localStorage.$default({
+    contacts: {}
+  });
+
   var _addContact = function () {
+    $localStorage.contacts[Date.now()] = {
+      firstName: 'Robert',
+      lastName: 'Jarosz',
+      email: 'aaa@bbb.com',
+      country: 'Poland'
+    };
     console.log('added');
   };
 
-  var _editContact = function () {
-    console.log('edited');
+  var _editContact = function (contact) {
+    var editedUser = angular.extend(contact, {});
+    console.log('edited', editedUser);
+    return editedUser;
   };
 
-  var _removeContact = function () {
-    console.log('removed');
+  var _saveContact = function (id, editedUser) {
+    $localStorage.contacts[id] = editedUser;
+  };
+
+  var _removeContact = function (id) {
+    delete $localStorage.contacts[id];
+    console.log('removed', id);
+  };
+
+  var _getAll = function () {
+    return $localStorage.contacts;
   };
 
   return {
     add: _addContact,
     edit: _editContact,
-    remove: _removeContact
+    save: _saveContact,
+    remove: _removeContact,
+    getAll: _getAll
   };
 }
+
+export default ['$localStorage', storageSrv];

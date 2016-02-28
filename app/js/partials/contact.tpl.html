@@ -1,0 +1,30 @@
+<tbody>
+  <tr ng-hide="editing">
+    <td>{{person.firstName}} {{id}}</td>
+    <td>{{person.lastName}}</td>
+    <td>{{person.email}}</td>
+    <td>{{person.country}}</td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="edit(person)">Edit</button>
+      <button type="button" class="btn btn-danger" ng-click="remove(id)">Remove</button>
+    </td>
+  </tr>
+  <tr ng-show="editing">
+    <td>
+      <input type="text" class="form-control" placeholder="First name" ng-model="editedUser.firstName">
+    </td>
+    <td>
+      <input type="text" class="form-control" placeholder="Last name" ng-model="editedUser.lastName">
+    </td>
+    <td>
+      <input type="text" class="form-control" placeholder="Email" ng-model="editedUser.email">
+    </td>
+    <td>
+      <select class="form-control" ng-options="country for country in countries" ng-model="editedUser.country">
+      </select>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="save(id, editedUser)">Save</button>
+    </td>
+  </tr>
+</tbody>

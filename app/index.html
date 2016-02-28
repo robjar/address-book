@@ -15,29 +15,7 @@
 
 <body>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">AddressBook</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" placeholder="Name..." class="form-control">
-          </div>
-          <button type="submit" class="btn btn-success">Search</button>
-          <button type="submit" class="btn btn-info">New</button>
-        </form>
-      </div>
-      <!--/.navbar-collapse -->
-    </div>
-  </nav>
+  <navbar></navbar>
 
   <div class="jumbotron">
     <div class="container">
@@ -47,81 +25,24 @@
 
   <div class="container" ng-controller="MainCtrl">
     <div class="row">
-      <table class="table-responsive">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Country</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <!--<div>
-  <td>Mark</td>
-  <td>Otto</td>
-  <td>@mdo</td>
-  <td>@mdo</td>
-  <td>
-    <button type="button" class="btn btn-success">Edit</button>
-    <button type="button" class="btn btn-danger">Remove</button>
-  </td>
-</div>-->
-              <div class="input-group">
-                <td>
-                  <input type="text" class="form-control" placeholder="First name" ng-model="firstName">
-                </td>
-                <td>
-                  <input type="text" class="form-control" placeholder="Last name" ng-model="lastName">
-                </td>
-                <td>
-                  <input type="text" class="form-control" placeholder="Email" ng-model="email">
-                </td>
-                <td>
-                  <select class="form-control" ng-options="country for country in countries" ng-model="country">
-                  </select>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-success" ng-click="add()">Save</button>
-                </td>
-              </div>
-            </tr>
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td>
-                <button type="button" class="btn btn-success">Edit</button>
-                <button type="button" class="btn btn-danger">Remove</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>@mdo</td>
-              <td>
-                <button type="button" class="btn btn-success">Edit</button>
-                <button type="button" class="btn btn-danger">Remove</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-              <td>@mdo</td>
-              <td>
-                <button type="button" class="btn btn-success">Edit</button>
-                <button type="button" class="btn btn-danger">Remove</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="(id, person) in contacts"
+          contact-dir
+          id="id"
+          person="person"
+          countries="countries">
+        </tbody>
       </table>
+
     </div>
 
     <hr>

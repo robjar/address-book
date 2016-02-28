@@ -22,7 +22,7 @@ gulp.task('clean:css', function () {
 });
 
 gulp.task('html', function () {
-  gulp.src('app/*.html')
+  gulp.src('app/**/*.html')
     .pipe(plg.connect.reload());
 });
 
@@ -66,7 +66,7 @@ gulp.task('bundle', ['clean:dist'], plg.shell.task([
 gulp.task('build', ['lint', 'bundle', 'sass:prod', 'html:prod']);
 
 gulp.task('watch', function () {
-  gulp.watch(['app/*.html'], ['html']);
+  gulp.watch(['app/**/*.html'], ['html']);
   gulp.watch(['app/**/*.js'], ['lint']);
   gulp.watch('app/sass/**/*.scss', ['sass:dev']);
 });
