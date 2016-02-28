@@ -43,7 +43,9 @@ gulp.task('lint', function () {
 
 gulp.task('sass:dev', ['clean:css'], function () {
   gulp.src('app/sass/styles.scss')
-    .pipe(plg.sass().on('error', plg.sass.logError))
+    .pipe(plg.sass({
+      importer: [cssImporter]
+    }).on('error', plg.sass.logError))
     .pipe(gulp.dest('app/css'))
     .pipe(plg.connect.reload());
 });
