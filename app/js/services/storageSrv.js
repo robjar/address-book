@@ -1,4 +1,4 @@
-function storageSrv() {
+export default function storageSrv() {
   var _addContact = function () {
     console.log('added');
   };
@@ -17,5 +17,3 @@ function storageSrv() {
     remove: _removeContact
   };
 }
-
-export default storageSrv;
