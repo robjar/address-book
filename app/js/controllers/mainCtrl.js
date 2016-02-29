@@ -2,6 +2,7 @@ function MainCtrl($scope, storageSvc, countriesSvc, searchSvc) {
   $scope.searchText = '';
   $scope.countries = countriesSvc.getList();
   $scope.contacts = storageSvc.getAll();
+  
   $scope.$watch(function() {
     return searchSvc.get();
   }, function(newVal, oldVal) {

@@ -6,8 +6,10 @@ module.exports = function (config) {
   config.set({
 
     basePath: "./",
-
-    files: [],
+    
+    files: [
+      
+    ],
     
     proxies: {
       "/app/": "/base/app/",
@@ -18,7 +20,7 @@ module.exports = function (config) {
       config: "app/config.js",
       packages: "app/jspm_packages/",
       serveFiles: [
-        "app/**/*.js"
+        "app/**/*.*",
       ],
       loadFiles: [
         "app/tests/**/*.js"
@@ -40,7 +42,7 @@ module.exports = function (config) {
     ],
 
     junitReporter: {
-      outputFile: "test_out/unit.xml",
+      outputFile: "unit.xml",
       suite: "unit"
     }
 

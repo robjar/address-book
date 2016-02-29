@@ -3,7 +3,6 @@ function pbContact(storageSvc) {
     restrict: 'A',
     replace: true,
     scope: {
-      id: '=',
       person: '=',
       countries: '='
     },
@@ -15,13 +14,13 @@ function pbContact(storageSvc) {
         $scope.editedPerson = storageSvc.edit(person);
       };
 
-      $scope.save = function (id, editedPerson) {
-        storageSvc.save(id, editedPerson);
+      $scope.save = function (person, editedPerson) {
+        storageSvc.save(person, editedPerson);
         $scope.editing = false;
       };
 
-      $scope.remove = function (id) {
-        storageSvc.remove(id);
+      $scope.remove = function (person) {
+        storageSvc.remove(person);
       };
     },
     templateUrl: 'partials/contact.html'

@@ -14,7 +14,7 @@ gulp.task('connect', function () {
 });
 
 gulp.task('clean:dist', function () {
-  del(['dist/**', '!dist']);
+  del(['dist']);
 });
 
 gulp.task('clean:css', function () {
@@ -64,14 +64,14 @@ gulp.task('sass:prod', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('bundle', plg.shell.task([
+gulp.task('bundle', ['clean:dist'], plg.shell.task([
   'jspm bundle-sfx js/app dist/bundle.js --minify'
 ]));
 
-gulp.task('prebuild', ['lint', 'bundle', 'sass:prod', 'html:prod', 'partials:prod']);
-
-gulp.task('build', ['clean:dist'], function() {
-  gulp.start('prebuild');
+gulp.task('build', ['lint', 'bundle'], function() {
+  gulp.start('sass:prod');
+  gulp.start('html:prod');
+  gulp.start('partials:prod');
 });
 
 gulp.task('watch', function () {

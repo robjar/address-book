@@ -3,7 +3,7 @@ import angular from 'angular';
 import 'angular-messages';
 
 //controllers
-import MainCtrl from './controllers/mainCtrl.js';
+import MainCtrl from './controllers/MainCtrl.js';
 
 //services
 import storageSvc from './services/storageSvc.js';

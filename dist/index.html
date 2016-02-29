@@ -33,9 +33,8 @@
             <th></th>
           </tr>
         </thead>
-        <tbody ng-repeat="(id, person) in contacts | filter:searchText"
+        <tbody ng-repeat="person in contacts | filter:searchText"
           pb-contact
-          id="id"
           person="person"
           countries="countries">
         </tbody>
