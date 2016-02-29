@@ -9,28 +9,45 @@
       <button type="button" class="btn btn-danger" ng-click="remove(id)">Remove</button>
     </td>
   </tr>
-  <tr ng-form name="editPerson" ng-show="editing">
-    <td>
-      <input type="text" class="form-control" placeholder="First name"
+  <tr ng-form name="editPerson" novalidate ng-show="editing">
+    <td ng-class="{ 'has-error': editPerson.firstName.$touched && editPerson.firstName.$invalid }">
+      <input type="text" name="firstName" class="form-control" placeholder="First name"
         ng-model="editedPerson.firstName"
         required>
+      <div class="help-block" ng-messages="editPerson.firstName.$error" ng-if="editPerson.firstName.$touched">
+        <p ng-message="required">First name is required.</p>
+      </div>
     </td>
-    <td>
-      <input type="text" class="form-control" placeholder="Last name"
+    
+    <td ng-class="{ 'has-error': editPerson.lastName.$touched && editPerson.lastName.$invalid }">
+      <input type="text" name="lastName" class="form-control" placeholder="Last name"
       ng-model="editedPerson.lastName"
       required>
+      <div class="help-block" ng-messages="editPerson.lastName.$error" ng-if="editPerson.lastName.$touched">
+        <p ng-message="required">First name is required.</p>
+      </div>
     </td>
-    <td>
-      <input type="text" class="form-control" placeholder="Email"
+    
+    <td ng-class="{ 'has-error': editPerson.email.$touched && editPerson.email.$invalid }">
+      <input type="email" name="email" class="form-control" placeholder="Email"
       ng-model="editedPerson.email"
       required>
+      <div class="help-block" ng-messages="editPerson.email.$error" ng-if="editPerson.email.$touched">
+        <p ng-message="required">Email is required.</p>
+        <p ng-message="email">The email address is not valid.</p>
+      </div>
     </td>
-    <td>
-      <select class="form-control" ng-options="country for country in countries"
+    
+    <td ng-class="{ 'has-error': editPerson.country.$touched && editPerson.country.$invalid }">
+      <select name="country" class="form-control" ng-options="country for country in countries"
         ng-model="editedPerson.country"
         required>
       </select>
+      <div class="help-block" ng-messages="editPerson.country.$error" ng-if="editPerson.country.$touched">
+        <p ng-message="required">Country is required.</p>
+      </div>
     </td>
+    
     <td>
       <button type="button" class="btn btn-success"
         ng-click="save(id, editedPerson)"

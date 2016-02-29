@@ -15,6 +15,7 @@ System.config({
 
   map: {
     "angular": "github:angular/bower-angular@1.5.0",
+    "angular-messages": "github:angular/bower-angular-messages@1.5.0",
     "angular-mocks": "github:angular/bower-angular-mocks@1.5.0",
     "angular-route": "github:angular/bower-angular-route@1.5.0",
     "babel": "npm:babel-core@5.8.35",
@@ -24,6 +25,9 @@ System.config({
     "country-list": "npm:country-list@0.0.3",
     "css": "github:systemjs/plugin-css@0.1.20",
     "ngstorage": "npm:ngstorage@0.3.10",
+    "github:angular/bower-angular-messages@1.5.0": {
+      "angular": "github:angular/bower-angular@1.5.0"
+    },
     "github:angular/bower-angular-mocks@1.5.0": {
       "angular": "github:angular/bower-angular@1.5.0"
     },

@@ -8,7 +8,7 @@ function navbarDir(storageSrv, countriesSrv) {
       $scope.countries = countriesSrv.getList();
       
       $scope.new = function () {
-        $scope.adding = true;
+        $scope.adding = !$scope.adding;
         console.log('new');
       };
       

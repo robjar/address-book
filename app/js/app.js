@@ -1,5 +1,6 @@
 import 'bootstrap';
 import angular from 'angular';
+import 'angular-messages';
 
 //controllers
 import MainCtrl from './controllers/mainCtrl.js';
@@ -12,7 +13,7 @@ import countriesSrv from './services/countriesSrv.js';
 import navbarDir from './directives/navbarDir.js';
 import contactDir from './directives/contactDir.js';
 
-const main = angular.module('main', ['ngStorage'])
+const main = angular.module('main', ['ngStorage', 'ngMessages'])
   .factory('storageSrv', storageSrv)
   .factory('countriesSrv', countriesSrv)
   .controller('MainCtrl', MainCtrl)
