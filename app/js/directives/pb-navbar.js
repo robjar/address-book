@@ -1,11 +1,11 @@
-function navbarDir(storageSrv, countriesSrv) {
+function pbNavbar(storageSvc, countriesSvc, searchSvc) {
   return {
     restrict: 'E',
     replace: true,
     scope: {},
     link: function ($scope) {
       $scope.adding = false;
-      $scope.countries = countriesSrv.getList();
+      $scope.countries = countriesSvc.getList();
       
       $scope.new = function () {
         $scope.adding = !$scope.adding;
@@ -13,15 +13,15 @@ function navbarDir(storageSrv, countriesSrv) {
       
       $scope.add = function (newUser) {
         $scope.adding = false;
-        storageSrv.add(newUser);
+        storageSvc.add(newUser);
       };
 
       $scope.search = function () {
-        console.log('search');
+        searchSvc.set($scope.searchText);
       };
     },
-    templateUrl: 'js/partials/navbar.html'
+    templateUrl: 'partials/navbar.html'
   };
 }
 
-export default ['storageSrv', 'countriesSrv', navbarDir];
+export default ['storageSvc', 'countriesSvc', 'searchSvc', pbNavbar];

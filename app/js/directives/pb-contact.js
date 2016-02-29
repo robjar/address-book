@@ -1,4 +1,4 @@
-function contactDir(storageSrv) {
+function pbContact(storageSvc) {
   return {
     restrict: 'A',
     replace: true,
@@ -12,20 +12,20 @@ function contactDir(storageSrv) {
 
       $scope.edit = function (person) {
         $scope.editing = true;
-        $scope.editedPerson = storageSrv.edit(person);
+        $scope.editedPerson = storageSvc.edit(person);
       };
 
       $scope.save = function (id, editedPerson) {
-        storageSrv.save(id, editedPerson);
+        storageSvc.save(id, editedPerson);
         $scope.editing = false;
       };
 
       $scope.remove = function (id) {
-        storageSrv.remove(id);
+        storageSvc.remove(id);
       };
     },
-    templateUrl: 'js/partials/contact.html'
+    templateUrl: 'partials/contact.html'
   };
 }
 
-export default ['storageSrv', contactDir];
+export default ['storageSvc', pbContact];

@@ -1,12 +1,12 @@
 <tbody>
   <tr ng-hide="editing">
-    <td>{{person.firstName}}</td>
+    <td>{{person.firstName}} {{searchText}}</td>
     <td>{{person.lastName}}</td>
     <td>{{person.email}}</td>
     <td>{{person.country}}</td>
     <td>
       <button type="button" class="btn btn-success" ng-click="edit(person)">Edit</button>
-      <button type="button" class="btn btn-danger" ng-click="remove(id)">Remove</button>
+      <button type="button" class="btn btn-danger" ng-click="remove(person)">Remove</button>
     </td>
   </tr>
   <tr ng-form name="editPerson" novalidate ng-show="editing">
@@ -50,7 +50,7 @@
     
     <td>
       <button type="button" class="btn btn-success"
-        ng-click="save(id, editedPerson)"
+        ng-click="save(person, editedPerson)"
         ng-disabled="editPerson.$invalid">
         Save
       </button>

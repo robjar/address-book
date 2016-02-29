@@ -1,6 +1,6 @@
 import countries from 'country-list';
 
-export default function countriesSrv() {
+export default function countriesSvc() {
   var _countries = countries(),
     _list = _countries.getNames();
 

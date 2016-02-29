@@ -26,6 +26,11 @@ gulp.task('html', function () {
     .pipe(plg.connect.reload());
 });
 
+gulp.task('partials:prod', function () {
+  gulp.src('app/partials/*.html')
+    .pipe(gulp.dest('dist/partials'));
+});
+
 gulp.task('html:prod', function () {
   gulp.src(['app/index.html'])
     .pipe(plg.replace(/<script[\s\S]*script>/, '<script src="bundle.js"></script>'))
@@ -59,11 +64,15 @@ gulp.task('sass:prod', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('bundle', ['clean:dist'], plg.shell.task([
+gulp.task('bundle', plg.shell.task([
   'jspm bundle-sfx js/app dist/bundle.js --minify'
 ]));
 
-gulp.task('build', ['lint', 'bundle', 'sass:prod', 'html:prod']);
+gulp.task('prebuild', ['lint', 'bundle', 'sass:prod', 'html:prod', 'partials:prod']);
+
+gulp.task('build', ['clean:dist'], function() {
+  gulp.start('prebuild');
+});
 
 gulp.task('watch', function () {
   gulp.watch(['app/**/*.html'], ['html']);

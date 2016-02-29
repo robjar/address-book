@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <navbar></navbar>
+  <pb-navbar></pb-navbar>
 
   <div class="jumbotron">
     <div class="container">
@@ -33,8 +33,8 @@
             <th></th>
           </tr>
         </thead>
-        <tbody ng-repeat="(id, person) in contacts"
-          contact-dir
+        <tbody ng-repeat="(id, person) in contacts | filter:searchText"
+          pb-contact
           id="id"
           person="person"
           countries="countries">

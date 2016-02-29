@@ -6,19 +6,21 @@ import 'angular-messages';
 import MainCtrl from './controllers/mainCtrl.js';
 
 //services
-import storageSrv from './services/storageSrv.js';
-import countriesSrv from './services/countriesSrv.js';
+import storageSvc from './services/storageSvc.js';
+import countriesSvc from './services/countriesSvc.js';
+import searchSvc from './services/searchSvc.js';
 
 //directives
-import navbarDir from './directives/navbarDir.js';
-import contactDir from './directives/contactDir.js';
+import pbNavbar from './directives/pb-navbar.js';
+import pbContact from './directives/pb-contact.js';
 
 const main = angular.module('main', ['ngStorage', 'ngMessages'])
-  .factory('storageSrv', storageSrv)
-  .factory('countriesSrv', countriesSrv)
+  .factory('storageSvc', storageSvc)
+  .factory('countriesSvc', countriesSvc)
+  .factory('searchSvc', searchSvc)
   .controller('MainCtrl', MainCtrl)
-  .directive('navbar', navbarDir)
-  .directive('contactDir', contactDir);
+  .directive('pbNavbar', pbNavbar)
+  .directive('pbContact', pbContact);
 
 angular.element(document).ready(() => {
   return angular.bootstrap(document, [main.name]);
