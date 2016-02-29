@@ -8,12 +8,10 @@ function storageSrv($localStorage) {
 
   var _addContact = function (newPerson) {
     $localStorage.contacts[Date.now()] = newPerson;
-    console.log('added', newPerson);
   };
 
   var _editContact = function (contact) {
     var editedUser = angular.extend(contact, {});
-    console.log('edited', editedUser);
     return editedUser;
   };
 

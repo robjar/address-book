@@ -24,7 +24,7 @@ function contactDir(storageSrv) {
         storageSrv.remove(id);
       };
     },
-    templateUrl: 'js/partials/contact.tpl.html'
+    templateUrl: 'js/partials/contact.html'
   };
 }
 

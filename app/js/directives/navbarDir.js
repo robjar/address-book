@@ -9,20 +9,18 @@ function navbarDir(storageSrv, countriesSrv) {
       
       $scope.new = function () {
         $scope.adding = !$scope.adding;
-        console.log('new');
       };
       
       $scope.add = function (newUser) {
         $scope.adding = false;
         storageSrv.add(newUser);
-        console.log('add', newUser);
       };
 
       $scope.search = function () {
         console.log('search');
       };
     },
-    templateUrl: 'js/partials/navbar.tpl.html'
+    templateUrl: 'js/partials/navbar.html'
   };
 }
 
